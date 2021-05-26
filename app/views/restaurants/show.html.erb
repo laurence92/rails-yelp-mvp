@@ -1,0 +1,13 @@
+<h1><%= @restaurant.name %></h1>
+<h3><%= @restaurant.address %></h3>
+<h3><%= @restaurant.phone_number %></h3>
+<div>
+<h2>Latest reviews</h2>
+  <ul class="list-group">
+    <% @restaurant.reviews.each do |review| %>
+      <li class="list-group-item"><%= review.content %> <%= review.rating %>/5  </li>
+    <% end %>
+  </ul>
+</div>
+
+<p><%= link_to 'Leave a review', new_restaurant_review_path(@restaurant), class: "btn btn-primary"%><%= link_to "Go back to index", restaurants_path, class: "btn btn-success"  %></p>
